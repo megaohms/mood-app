@@ -11,3 +11,15 @@ export const createNewJournalEntry = async () => {
     return data.data
   }
 }
+
+export const updateJournalEntry = async (id, content) => {
+  const res = await fetch(new Request(fullURL(`/api/journal/${id}`), {
+    method: 'PATCH',
+    body: JSON.stringify({ content })
+  }))
+
+  if (res.ok) {
+    const data = await res.json()
+    return data.data
+  }
+}
