@@ -1,0 +1,5 @@
+{
+    "java.debugger.reloadClassesAfterCompilation": "Always",
+    "editor.guides": [],
+    "nodejs.typescript.rebuildOnChanges": true
+}
