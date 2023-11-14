@@ -1,10 +1,11 @@
+import { NextResponse } from 'next/server'
 import { getUserByClerkId } from '@/utils/auth'
 import { prisma } from '@/utils/db'
 
 export const PATCH = async (request, { params }) => {
-  const content = await request.json()
-  const user = await getUserByClerkId
-  const updatedEntry = await prisma.JournalEntry.update({
+  const { content } = await request.json()
+  const user = await getUserByClerkId()
+  const updatedEntry = await prisma.journalEntry.update({
     where: {
       userId_id: {
         userId: user.id,
@@ -15,6 +16,6 @@ export const PATCH = async (request, { params }) => {
       content,
     }
   })
-  
-  return NextResponse({ data: updatedEntry })
+
+  return NextResponse.json({ data: updatedEntry })
 }
