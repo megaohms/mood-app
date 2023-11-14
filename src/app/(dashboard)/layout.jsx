@@ -12,7 +12,7 @@ const DashboardLayout = ({ children }) => {
             <UserButton />
           </div>
         </header>
-        <div className="h-full bg-neutral-300">{children}</div>
+        <div className="h-full bg-neutral-200">{children}</div>
       </div>
     </div>
   )
