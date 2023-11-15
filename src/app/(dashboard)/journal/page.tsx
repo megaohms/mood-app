@@ -3,7 +3,6 @@ import { prisma } from '@/utils/db'
 import {getUserByClerkId} from "@/utils/auth";
 import NewEntryCard from "@/components/NewEntryCard";
 import EntryCard from "@/components/EntryCard";
-import {analyze} from "@/utils/ai";
 
 const getEntries = async () => {
   const user = await getUserByClerkId()

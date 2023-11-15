@@ -19,6 +19,7 @@ export const POST = async () => {
     data: {
       entryId: entry.id,
       ...analysis,
+//      negative: Boolean(analysis.negative),
     }
   })
 
