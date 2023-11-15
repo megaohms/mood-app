@@ -4,22 +4,22 @@ import { prisma } from '@/utils/db'
 import { analyze } from "@/utils/ai";
 
 export const PATCH = async (request, { params }) => {
-  const user = await getUserByClerkId()
-  const { content } = await request.json()
+  const [user, { content }] = await Promise.all([getUserByClerkId(), request.json()])
 
-  const updatedEntry = await prisma.journalEntry.update({
-    where: {
-      userId_id: {
-        userId: user.id,
-        id: params.id
+  const [analysis, updatedEntry] = await Promise.all([
+    analyze(content),
+    prisma.journalEntry.update({
+      where: {
+        userId_id: {
+          userId: user.id,
+          id: params.id
+        }
+      },
+      data: {
+        content,
       }
-    },
-    data: {
-      content,
-    }
-  })
-
-  const analysis = await analyze(content)
+    })
+  ])
 
   await prisma.analysis.upsert({
     where: { entryId: updatedEntry.id },
