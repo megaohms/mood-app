@@ -9,21 +9,21 @@ import z from 'zod'
 
 const parser = StructuredOutputParser.fromZodSchema(
   z.object({
-    mood: z
-      .string()
-      .describe('the mood of the person who wrote the journal entry.'),
     color: z
       .string()
       .describe('the hexidecimal color which represents the mood of the journal entry. for example, #0101fe for representing happiness'),
+    mood: z
+      .string()
+      .describe('the mood of the person who wrote the journal entry.'),
+    negative: z
+      .boolean()
+      .describe('is the journal entry negative? ie does it contain negative overtones or undertones?'),
     subject: z
       .string()
       .describe('the summary of the journa entry.'),
     summary: z
       .string()
       .describe('quick summary of the journal entry.'),
-    negative: z
-      .boolean()
-      .describe('is the journal entry negative? ie does it contain negative overtones or undertones?'),
   })
 )
 
