@@ -3,8 +3,8 @@ const EntryCard = ({ entry }) => {
   return (
     <div className="rounded-md shadow-md bg-white divide-y divide-neutral-600">
       <div className="p-4 sm:p-6 text-md">{date}</div>
-      <div className="p-4 sm:p-6 text-md">summary</div>
-      <div className="p-4 sm:p-6 text-md">mood</div>
+      <div className="p-4 sm:p-6 text-md">{entry.analysis.summary}</div>
+      <div className="p-4 sm:p-6 text-md">{entry.analysis.mood}</div>
     </div>
   )
 }

@@ -20,7 +20,6 @@ export const POST = async () => {
       entryId: entry.id,
       userId: user.id,
       ...analysis,
-//      negative: Boolean(analysis.negative),
     }
   })
 
