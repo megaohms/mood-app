@@ -3,6 +3,7 @@ import { prisma } from '@/utils/db'
 import {getUserByClerkId} from "@/utils/auth";
 import NewEntryCard from "@/components/NewEntryCard";
 import EntryCard from "@/components/EntryCard";
+import Question from "@/components/Question";
 
 const getEntries = async () => {
   const user = await getUserByClerkId()
@@ -24,6 +25,7 @@ const JournalPage = async () => {
   return (
     <div className="flex flex-col gap-y-8 p-8">
       <h1 className="text-2xl">Journal</h1>
+      <Question />
       <div className="grid grid-cols-3 gap-4">
         <NewEntryCard />
         {entries.map((entry) => (
