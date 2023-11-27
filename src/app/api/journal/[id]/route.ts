@@ -23,7 +23,7 @@ export const PATCH = async (request, { params }) => {
 
   await prisma.analysis.upsert({
     where: { entryId: updatedEntry.id },
-    create: { ...analysis, entryId: updatedEntry.id },
+    create: { ...analysis, userId: user.id, entryId: updatedEntry.id },
     update: analysis,
   })
 

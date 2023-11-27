@@ -18,6 +18,9 @@ const parser = StructuredOutputParser.fromZodSchema(
     negative: z
       .boolean()
       .describe('is the journal entry negative? ie does it contain negative overtones or undertones?'),
+    sentimentScore: z
+      .number()
+      .describe('Sentiment on the text and rated on the scale from -10 to 10, where -10 is extremely negative, 0 is neutral, and 10 is extremely positive.'),
     subject: z
       .string()
       .describe('the summary of the journa entry.'),
