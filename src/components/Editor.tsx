@@ -7,8 +7,8 @@ import { updateJournalEntry } from '@/utils/api'
 const Editor = ({ entry }) => {
   const [value, setValue] = useState(entry.content)
   const [isLoading, setIsLoading] = useState(false)
-  const [analysis, setAnalysis] = useState({})
-  const { mood, subject, summary, color, negative } = analysis
+  const [analysis, setAnalysis] = useState(entry.analysis)
+  const { mood, subject, summary, color, negative } = entry.analysis
   const analysisData = [
     { name: 'Subject', value: subject },
     { name: 'Summary', value: summary },
