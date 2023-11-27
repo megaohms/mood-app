@@ -27,7 +27,7 @@ const DashboardLayout = ({ children }) => {
             <UserButton />
           </div>
         </header>
-        <div className="h-full bg-neutral-200">{children}</div>
+        <div className="bg-neutral-200 h-[calc(100vh-64px)]">{children}</div>
       </div>
     </div>
   )
